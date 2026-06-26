@@ -105,7 +105,7 @@ function computePrice(tier: PricingTier, currency: Currency, billing: Billing): 
 const FEATURES = [
   { id: 0, Icon: ArrowPathSVG,  title: "Neural Pipeline Engine",      desc: "Self-optimizing ML pipelines that adapt in real-time. Train once, deploy everywhere — with automatic drift detection and model versioning baked in.", tag: "Core AI",        large: true  },
   { id: 1, Icon: ArrowTrendingSVG, title: "Sub-50ms Processing",      desc: "Edge-first architecture delivers results before your users notice. Powered by WASM and parallel execution graphs.", tag: "Performance" },
-  { id: 2, Icon: CogSVG,        title: "Zero-Trust Security",         desc: "End-to-end encryption, SOC 2 Type II certified, and granular RBAC — compliance built into every layer.", tag: "Security",       tall: true   },
+  { id: 2, Icon: CogSVG,        title: "Zero-Trust Security",         desc: "End-to-end encryption, SOC 2 Type II certified, and granular RBAC — compliance built into every layer.", tag: "Security" },
   { id: 3, Icon: ChartPieSVG,   title: "Live Intelligence Dashboard", desc: "Real-time insights with customizable KPI widgets, anomaly detection alerts, and exportable reports.", tag: "Analytics" },
   { id: 4, Icon: LinkSVG,       title: "Universal API Gateway",       desc: "Connect any data source with 200+ native connectors or our open SDK. GraphQL, REST, and gRPC all supported.", tag: "Integration" },
   { id: 5, Icon: CubeSVG,       title: "Global Edge Network",         desc: "Deployed across 42 regions. Data stays local, latency stays low, and uptime stays at 99.99%.", tag: "Infrastructure" },
@@ -289,7 +289,7 @@ export default function Home() {
             {FEATURES.map(f => (
               <article
                 key={f.id}
-                className={`bento-card fade-up${f.large ? " large" : ""}${f.tall ? " tall" : ""}${activeFeature === f.id ? " active" : ""}`}
+                className={`bento-card fade-up${f.large ? " large" : ""}${activeFeature === f.id ? " active" : ""}`}
                 role="listitem"
                 onMouseEnter={() => setActiveFeature(f.id)}
                 onMouseLeave={() => setActiveFeature(null)}
