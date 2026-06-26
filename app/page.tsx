@@ -110,7 +110,6 @@ export default function Home() {
   const [currency, setCurrency] = useState<Currency>("USD");
   const [activeFeature, setActiveFeature] = useState<number | null>(null);
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
 
   const activeFeatureRef = useRef<number | null>(null);
   const priceRefs = useRef<Record<string, HTMLSpanElement | null>>({});
@@ -136,14 +135,12 @@ export default function Home() {
   // ── Resize: bento → accordion context transfer ──
   const handleResize = useCallback(() => {
     const mobile = window.innerWidth <= 768;
-    setIsMobile(mobile);
     if (mobile && activeFeatureRef.current !== null) {
       setOpenAccordion(activeFeatureRef.current);
     }
   }, []);
 
   useEffect(() => {
-    setIsMobile(window.innerWidth <= 768);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [handleResize]);

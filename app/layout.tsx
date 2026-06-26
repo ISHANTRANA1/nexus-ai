@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nexus-ai-eight-tau.vercel.app"),
   title: "NexusAI — Intelligent Data Automation Platform",
   description: "NexusAI automates your entire data pipeline with advanced AI. Extract, transform, and deploy insights 10x faster with zero manual intervention.",
   keywords: "AI automation, data pipeline, machine learning, data intelligence, automation platform",

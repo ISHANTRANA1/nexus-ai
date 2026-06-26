@@ -48,14 +48,15 @@ h1, h2, h3, h4, .mono {
   overflow: hidden;
 }
 .loader-fill {
-  height: 100%;
+  height: 100%; width: 100%;
   background: linear-gradient(90deg, var(--forsythia), var(--saffron));
   border-radius: 2px;
+  transform-origin: left;
   animation: loadfill 400ms ease-out forwards;
 }
 @keyframes loadfill {
-  from { width: 0%; }
-  to { width: 100%; }
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 
 /* ── Entry animations ── */
@@ -525,3 +526,18 @@ footer {
 ::-webkit-scrollbar-track { background: var(--noir); }
 ::-webkit-scrollbar-thumb { background: var(--nocturnal); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--forsythia); }
+
+/* ── Performance & Accessibility ── */
+.bento-card, .pricing-card, .testimonial-card, .nav-cta, .btn-primary {
+  will-change: transform;
+}
+.loader-fill { will-change: transform; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .fade-up { opacity: 1 !important; transform: none !important; }
+  #loader { display: none !important; }
+}
