@@ -242,23 +242,13 @@ section { padding: 100px 40px; }
   position: relative; overflow: hidden;
   transition: border-color 200ms ease-out, background 200ms ease-out, transform 200ms ease-out;
 }
-.bento-card::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg, var(--forsythia-20), transparent);
-  opacity: 0;
-  transition: opacity 200ms ease-out;
-  border-radius: inherit;
-  pointer-events: none;
-  z-index: 0;
-}
-.bento-card > * { position: relative; z-index: 1; }
+.bento-card::before { display: none; }
 .bento-card:hover, .bento-card.active {
-  border-color: rgba(255,200,1,0.25);
-  background: rgba(255,200,1,0.05);
+  border-color: rgba(255,200,1,0.35);
+  background: rgba(255,200,1,0.06);
   transform: translateY(-2px);
+  box-shadow: 0 0 0 1px rgba(255,200,1,0.15), 0 8px 32px rgba(0,0,0,0.3);
 }
-.bento-card:hover::before, .bento-card.active::before { opacity: 1; }
 .bento-card.large { grid-column: span 2; }
 .bento-card.tall { grid-row: span 2; }
 
